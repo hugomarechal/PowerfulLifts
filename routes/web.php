@@ -22,9 +22,9 @@ Route::middleware('guest')->group(function() {
 
 
 Route::middleware('auth')->group(function() {
-    Route::get('/dashboard', function () {
-        return Inertia::render('BaseDashboard');
-    })->name('dashboard');
-
+    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'getDashboard'])->name('dashboard');
+    Route::get('/new-workout', [\App\Http\Controllers\WorkoutController::class, 'startWorkout'])->name('new-workout');
+    Route::post('/end-workout', [\App\Http\Controllers\WorkoutController::class, 'endWorkout'])->name('end-workout');
+    Route::post('set', [\App\Http\Controllers\SetController::class, 'store'])->name('set.store');
     Route::post('logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 });

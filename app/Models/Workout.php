@@ -13,6 +13,7 @@ class Workout extends Model
 
     protected $fillable = [
         'user_id',
+        'active'
     ];
 
     public function users(): BelongsTo

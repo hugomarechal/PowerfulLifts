@@ -1,10 +1,10 @@
 import React from "react";
 
-const DashboardLayout = () => {
+const DashboardLayout = ({children}) => {
 
     return(
         <>
-
+            {children}
         </>
     )
 }

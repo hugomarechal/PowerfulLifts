@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Set;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class SetController extends Controller
 {

@@ -18,11 +18,11 @@ class Workout extends Model
 
     public function users(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function sets(): HasMany
     {
-        return $this->hasMany(Set::class);
+        return $this->hasMany(Set::class, 'workout_id');
     }
 }

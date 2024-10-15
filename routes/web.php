@@ -24,7 +24,9 @@ Route::middleware('guest')->group(function() {
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'getDashboard'])->name('dashboard');
     Route::get('/new-workout', [\App\Http\Controllers\WorkoutController::class, 'startWorkout'])->name('new-workout');
-    Route::post('/end-workout', [\App\Http\Controllers\WorkoutController::class, 'endWorkout'])->name('end-workout');
+    Route::patch('end-workout', [\App\Http\Controllers\WorkoutController::class, 'endWorkout'])->name('end-workout');
+    Route::get('/workout-list', [\App\Http\Controllers\WorkoutController::class, 'listWorkouts'])->name('workout-list');
     Route::post('set', [\App\Http\Controllers\SetController::class, 'store'])->name('set.store');
     Route::post('logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+    Route::get('settings', [\App\Http\Controllers\UserController::class, 'getSettings'])->name('settings');
 });

@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 
 class UserController extends Controller
@@ -47,4 +48,10 @@ class UserController extends Controller
 
         return redirect('/');
     }
+
+    public function getSettings()
+    {
+        return Inertia::render('Settings', [
+            'user' => auth()->user(),
+        ]);    }
 }

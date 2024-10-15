@@ -17,8 +17,8 @@ class Set extends Model
         'weight',
     ];
 
-    public function workouts(): BelongsTo
+    public function workout(): BelongsTo
     {
-        return $this->belongsTo(Workout::class);
+        return $this->belongsTo(Workout::class, 'workout_id');
     }
 }

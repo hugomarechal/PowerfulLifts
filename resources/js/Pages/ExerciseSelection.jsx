@@ -9,7 +9,7 @@ const ExerciseSelection = ({workoutId}) => {
         <div>
             <h1>New Workout</h1>
             <h2>Quel exercice veux-tu renseigner ?</h2>
-            <Link href={route('end-workout')} method='post' as='button'>Fin de l'entrainement</Link>
+            <Link href={route('end-workout')} method='patch' as='button'>Fin de l'entrainement</Link>
             <div>
                 <button onClick={() => setExercise('Squat')}>Squat</button>
                 <button onClick={() => setExercise('Bench Press')}>Développé Couché</button>

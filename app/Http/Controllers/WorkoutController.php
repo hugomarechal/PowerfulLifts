@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Set;
 use App\Models\Workout;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -25,9 +26,18 @@ class WorkoutController extends Controller
     public function endWorkout()
     {
         Workout::where(['user_id' => auth()->id(), 'active' => true])->update(
-            ['user_id' => auth()->id(), 'active' => false]
+            ['active' => false]
         );
 
-        return Inertia::render('BaseDashboard', ['user' => auth()->user()]);
+        return redirect('dashboard');
     }
+
+    /*public function listWorkouts()
+    {
+        $user_workouts = Workout::selec
+
+        dd($user_workouts);
+
+        return Inertia::render('Components/Workout/WorkoutHistory', ['workouts' => $user_workouts]);
+    }*/
 }

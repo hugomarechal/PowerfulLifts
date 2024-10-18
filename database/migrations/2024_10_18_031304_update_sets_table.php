@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('sets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('workout_id')->references('id')->on('workouts')->onDelete('cascade');
-            $table->foreignId('exercise_id')->references('id')->on('exercises')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->enum('name', ['Squat', 'Bench Press', 'Deadlift']);
             $table->float('weight');
             $table->integer('repetitions');

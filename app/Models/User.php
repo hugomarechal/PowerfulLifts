@@ -47,15 +47,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function workouts(): HasMany
+    public function sets(): HasMany
     {
-        return $this->hasMany(Workout::class);
+        return $this->hasMany(Set::class);
     }
-
-    public function personalRecords(): HasMany
-    {
-        return $this->hasMany(PersonalRecord::class);
-    }
-
 
 }

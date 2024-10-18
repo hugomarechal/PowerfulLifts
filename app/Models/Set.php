@@ -11,14 +11,14 @@ class Set extends Model
     use HasFactory;
 
     protected $fillable = [
-        'workout_id',
+        'user_id',
         'name',
         'repetitions',
         'weight',
     ];
 
-    public function workout(): BelongsTo
+    public function users(): BelongsTo
     {
-        return $this->belongsTo(Workout::class, 'workout_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

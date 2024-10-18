@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import ProfileEditForm from "../Components/Settings/ProfileEditForm.jsx";
 import DeleteAccountPopIn from "../Components/Settings/DeleteAccountPopin.jsx";
+import DashboardLayout from "../Layouts/DashboardLayout.jsx";
 
 const Settings = ({user}) => {
 
     const [isFormVisible, setIsFormVisible] = useState(false);
-    const [formType, setFormType] = useState(type);
+    const [formType, setFormType] = useState(null);
     const [isPopInVisible, setIsPopInVisible] = useState(false);
     function getProfileEditForm(type) {
         setFormType(type);
@@ -17,7 +18,7 @@ const Settings = ({user}) => {
     }
 
     return(
-        <>
+        <DashboardLayout>
             <div>
                 <h1>Que voulez vous faire ?</h1>
                 <button onClick={() => getProfileEditForm('name')}>Changer de nom d'utilisateur</button>
@@ -30,7 +31,7 @@ const Settings = ({user}) => {
             {
                 isPopInVisible && <DeleteAccountPopIn setIsPopInVisible={setIsPopInVisible()}/>
             }
-        </>
+        </DashboardLayout>
     )
 }
 

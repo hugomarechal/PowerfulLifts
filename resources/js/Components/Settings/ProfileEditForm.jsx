@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
+import PopInLayout from "../../Layouts/PopInLayout.jsx";
 
-const ProfileEditForm = ({type, setIsFormVisible}) => {
+const ProfileEditForm = ({type, handleClose, user}) => {
 
 
     return (
-        <form></form>
+        <PopInLayout handleClose={handleClose}>
+            <form action="">
+
+            </form>
+        </PopInLayout>
     );
 };
 

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import ProfileEditForm from "../Components/Settings/ProfileEditForm.jsx";
 import DeleteAccountPopIn from "../Components/Settings/DeleteAccountPopin.jsx";
 import DashboardLayout from "../Layouts/DashboardLayout.jsx";
+import {Link} from "@inertiajs/react";
 
 const Settings = ({user}) => {
 
@@ -17,6 +18,12 @@ const Settings = ({user}) => {
         setIsPopInVisible(true);
     }
 
+    const handleClose = () => {
+        setIsPopInVisible(false);
+        setIsFormVisible(false);
+        setFormType(null);
+    }
+
     return(
         <DashboardLayout>
             <div>
@@ -24,12 +31,14 @@ const Settings = ({user}) => {
                 <button onClick={() => getProfileEditForm('name')}>Changer de nom d'utilisateur</button>
                 <button onClick={() => getProfileEditForm('password')}>Changer de mot de passe</button>
                 <button onClick={() => deleteAccount()}>Supprimer mon compte</button>
+                <Link method='post' as='button' href={route('logout')}>Logout</Link>
+
             </div>
             {
-                isFormVisible && <ProfileEditForm type={formType} setIsFormVisible={setIsFormVisible}/>
+                isFormVisible && <ProfileEditForm user={user} type={formType} setIsFormVisible={setIsFormVisible} handleClose={handleClose}/>
             }
             {
-                isPopInVisible && <DeleteAccountPopIn setIsPopInVisible={setIsPopInVisible()}/>
+                isPopInVisible && <DeleteAccountPopIn user={user} setIsPopInVisible={setIsPopInVisible} handleClose={handleClose}/>
             }
         </DashboardLayout>
     )

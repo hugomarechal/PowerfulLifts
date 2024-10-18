@@ -5,7 +5,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');
 
 Route::middleware('guest')->group(function() {
     Route::get('/signup', function () {
@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function() {
     Route::post('set', [\App\Http\Controllers\SetController::class, 'store'])->name('set.store');
     Route::get('personal-records', [\App\Http\Controllers\SetController::class, 'showPersonalRecords'])->name('personal-records.show');
 
-    Route::post('logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
     Route::get('settings', [\App\Http\Controllers\UserController::class, 'getSettings'])->name('settings');
+    Route::post('logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+    Route::delete('users/{id}', [\App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 });

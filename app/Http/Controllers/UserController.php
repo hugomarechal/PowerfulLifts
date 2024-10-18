@@ -15,6 +15,7 @@ class UserController extends Controller
 {
     public function signup(SignUpRequest $request)
     {
+        $request->validated();
 
         User::create([
             'name' => $request->name,
@@ -38,6 +39,13 @@ class UserController extends Controller
 
     }
 
+
+    public function getSettings()
+    {
+        return Inertia::render('Settings', [
+            'user' => auth()->user(),
+        ]);    }
+
     public function logout(Request $request)
     {
         Auth::guard('web')->logout();
@@ -46,12 +54,12 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/dashboard');
     }
 
-    public function getSettings()
+    public function destroy($id)
     {
-        return Inertia::render('Settings', [
-            'user' => auth()->user(),
-        ]);    }
+        User::findOrFail($id)->delete();
+        return redirect()->route('landing');
+    }
 }

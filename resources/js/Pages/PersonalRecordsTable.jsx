@@ -2,8 +2,6 @@ import React from 'react';
 import DashboardLayout from "../Layouts/DashboardLayout.jsx";
 
 const PersonalRecordsTable = ({ squats, benches, deadlifts }) => {
-    console.log(squats);
-
     function updatePR() {
 
     }
@@ -28,7 +26,7 @@ const PersonalRecordsTable = ({ squats, benches, deadlifts }) => {
                             <td>{exercise.repetitions}</td>
                             <td>{exercise.weight}</td>
                             <td>{new Date(exercise.created_at).toLocaleDateString()}</td>
-                            <td><button onClick={updatePR}>Mettre à jour</button></td>
+                            <td><button onClick={updatePR}>Modifier</button></td>
                         </tr>
                     ))
                 }

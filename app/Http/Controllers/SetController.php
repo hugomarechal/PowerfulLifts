@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewSetRequest;
 use App\Models\Set;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -9,13 +10,15 @@ use Inertia\Inertia;
 
 class SetController extends Controller
 {
-    public function store(Request $request)
+    public function store(NewSetRequest $request)
     {
+        $request->validated();
+
         Set::create([
-            'workout_id' => $request->workoutId,
-            'name' => $request->name,
-            'repetitions' => $request->repetitions,
-            'weight' => $request->weight,
+            'user_id' =>  $request->userId,
+            'name' =>  $request->name,
+            'repetitions' =>  $request->repetitions,
+            'weight' =>  $request->weight,
         ]);
 
         return back();

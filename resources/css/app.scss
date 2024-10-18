@@ -10,6 +10,10 @@ h1 {
     color: #333;
 }
 
+.illustration {
+    width: 80%;
+    margin-top: 30px;
+}
 
  // partials
 .header {
@@ -131,6 +135,12 @@ button {
             background-color: transparent;
         }
     }
+    &.white_input {
+        input {
+            background-color: white;
+            border: black 1px solid;
+        }
+    }
 }
 
 table {
@@ -152,6 +162,7 @@ table {
     align-items: center;
     margin-top: 80px;
     height: 100vh;
+    padding: 0 16px;
     .total {
         display: flex;
         flex-direction: column;
@@ -162,6 +173,15 @@ table {
             margin: 0 auto;
         }
     }
+}
+
+.flex-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
 }
 
 // home page

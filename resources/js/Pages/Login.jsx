@@ -24,7 +24,7 @@ const Login = ({ status, canResetPassword }) => {
         <AuthLayout>
             <h1>Connexion</h1>
             <form onSubmit={submit}>
-                <div>
+                <div className={"input_container white_input"}>
                     <label htmlFor="email">Email</label>
                     <input
                         id="email"
@@ -35,7 +35,7 @@ const Login = ({ status, canResetPassword }) => {
                         required
                     />
                 </div>
-                <div>
+                <div className={"input_container white_input"}>
                     <label htmlFor="password">Mot de passe</label>
                     <input
                         type='password'

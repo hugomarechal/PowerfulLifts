@@ -27,7 +27,7 @@ const SignUp = () => {
         <AuthLayout>
             <h1>Inscription</h1>
             <form onSubmit={submit}>
-                <div>
+                <div className={"input_container white_input"}>
                     <label htmlFor="name">Nom</label>
                     <input
                         id="name"
@@ -38,7 +38,7 @@ const SignUp = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className={"input_container white_input"}>
                     <label htmlFor="email">Email</label>
                     <input
                         id="email"
@@ -50,7 +50,7 @@ const SignUp = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className={"input_container white_input"}>
                     <label htmlFor="password">Mot de passe</label>
                     <input
                         id="password"
@@ -62,7 +62,7 @@ const SignUp = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className={"input_container white_input"}>
                     <label htmlFor="password_confirmation">Confirmez le mot de passe</label>
                     <input
                         id="password_confirmation"
@@ -76,7 +76,7 @@ const SignUp = () => {
                 </div>
                 <div>
                     <button disabled={processing}>
-                        SignUp
+                        Inscription
                     </button>
                     <Link href={route('login')} as={'button'}>J'ai déjà un compte</Link>
                 </div>

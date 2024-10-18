@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,6 +19,11 @@ Route::middleware('guest')->group(function() {
     })->name('login');
 
     Route::post('login', [\App\Http\Controllers\UserController::class, 'login'])->name('login.post');
+
+    Route::get('forgot-password', [PasswordController::class, 'create'])->name('password.request');
+    Route::post('forgot-password', [PasswordController::class, 'store'])->name('password.email');
+    Route::get('reset-password/{token}', [PasswordController::class, 'create'])->name('password.reset');
+    Route::post('reset-password', [PasswordController::class, 'store'])->name('password.store');
 });
 
 
@@ -29,6 +35,7 @@ Route::middleware('auth')->group(function() {
     Route::put('set/{id}', [\App\Http\Controllers\SetController::class, 'update'])->name('set.update');
 
     Route::get('settings', [\App\Http\Controllers\UserController::class, 'getSettings'])->name('settings');
+    Route::put('users/{id}', [\App\Http\Controllers\UserController::class, 'updateName'])->name('name.update');
     Route::post('logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
     Route::delete('users/{id}', [\App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 });

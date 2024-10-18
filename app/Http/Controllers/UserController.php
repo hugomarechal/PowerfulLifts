@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\SignUpRequest;
 use App\Models\User;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -55,6 +54,18 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/dashboard');
+    }
+
+    public function updateName(Request $request, $id)
+    {
+        User::findOrFail($id)->update(
+            $request->validate([
+                'name' => ['required', 'string', 'min:2', 'max:30'],
+            ])
+        );
+
+        return back();
+
     }
 
     public function destroy($id)

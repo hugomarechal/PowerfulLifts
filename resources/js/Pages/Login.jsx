@@ -45,13 +45,10 @@ const Login = ({ status, canResetPassword }) => {
                         onChange={(e) => setData('password', e.target.value)}
                         required
                     />
+                    <a href={route('password.request')}>Mot de passe oublié ?</a>
                 </div>
-                <div>
-                    <button disabled={processing} type="submit">Connexion</button>
-                </div>
-                <div>
-                    <Link href={route('signup')} as={'button'}>Créer un compte</Link>
-                </div>
+                <button disabled={processing} type="submit">Connexion</button>
+                <Link href={route('signup')} as={'button'}>Créer un compte</Link>
             </form>
         </AuthLayout>
     );

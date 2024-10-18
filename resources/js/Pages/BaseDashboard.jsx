@@ -13,20 +13,36 @@ const BaseDashboard = ({user, records}) => {
 
     return (
         <DashboardLayout>
-            <h1>Bonjour {user.name}</h1>
-            <div>
-                <h2>Records Personnels</h2>
-                <div>Total théorique:
-                    {(records.squat ? records.squat.weight : 0)
-                    + (records.bench ? records.bench.weight : 0)
-                    + (records.deadlift ? records.deadlift.weight : 0)}kg
+            <div className='main-container'>
+                <h2>Dashboard de {user.name}</h2>
+                <div>
+                    <div className="total">
+                        <h4>Votre potentiel de force actuel est de :</h4>
+                        <p>
+                            {(records.squat ? records.squat.weight : 0)
+                            + (records.bench ? records.bench.weight : 0)
+                            + (records.deadlift ? records.deadlift.weight : 0)}kg
+                        </p>
+                    </div>
+                    <h4>Meilleurs performances du moment :</h4>
+                    <div className="exercises-container">
+                        <div className="exercise">
+                            <p>Squat</p>
+                            <p className={'score'}> {records.squat ? records.squat.weight : 0}kg ({records.squat ? records.squat.repetitions : 0}RM)</p>
+                        </div>
+                        <div className="exercise">
+                            <p>Bench</p>
+                            <p className={'score'}>{records.bench ? records.bench.weight : 0}kg ({records.squat ? records.squat.repetitions : 0}RM)</p>
+                        </div>
+                        <div className="exercise">
+                            <p>Deadlift</p>
+                            <p className={'score'}>{records.deadlift ? records.deadlift.weight : 0}kg ({records.squat ? records.squat.repetitions : 0}RM)</p>
+                        </div>
+                    </div>
                 </div>
-                <div>Squat: {records.squat ? records.squat.weight : 0}kg ({records.squat ? records.squat.repetitions : 0}RM)</div>
-                <div>Bench: {records.bench ? records.bench.weight : 0}kg ({records.bench ? records.bench.repetitions : 0}RM)</div>
-                <div>Deadlift: {records.deadlift ? records.deadlift.weight : 0}kg ({records.deadlift ? records.deadlift.repetitions : 0}RM)</div>
+                <button onClick={() => setIsPopInOpen(true)}>Enregistrer un PR</button>
+                {isPopInOpen && <SetPR handleClose={handleClose} user={user}/>}
             </div>
-            <button onClick={() => setIsPopInOpen(true)}>Enregistrer un PR</button>
-            {isPopInOpen && <SetPR handleClose={handleClose} user={user}/>}
         </DashboardLayout>
     );
 };

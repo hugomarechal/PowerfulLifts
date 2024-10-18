@@ -17,7 +17,7 @@ const NameEditForm = ({handleClose, user}) => {
     return (
         <PopInLayout handleClose={handleClose}>
             <form onSubmit={submit}>
-                <div>
+                <div className={'input_container'}>
                     <label htmlFor="formerName">Nom actuel</label>
                     <input
                         id="formerName"
@@ -26,7 +26,7 @@ const NameEditForm = ({handleClose, user}) => {
                         disabled
                     />
                 </div>
-                <div>
+                <div className={'input_container'}>
                     <label htmlFor="name">Nouveau nom</label>
                     <input
                         id="name"
@@ -37,7 +37,7 @@ const NameEditForm = ({handleClose, user}) => {
                         required
                     />
                 </div>
-                <div>
+                <div className={'input_container'}>
                     <button disabled={processing}>
                         Modifier le nom d'utilisateur
                     </button>

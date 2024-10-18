@@ -23,8 +23,8 @@ const Settings = ({user}) => {
 
     return(
         <DashboardLayout>
-            <div>
-                <h1>Que voulez vous faire ?</h1>
+            <div className={'main-container settings'}>
+                <h2>Que voulez vous faire ?</h2>
                 <button onClick={() => getNameEditForm()}>Changer de nom d'utilisateur</button>
                 <button onClick={() => getProfileEditForm('password')}>Changer de mot de passe</button>
                 <button onClick={() => deleteAccount()}>Supprimer mon compte</button>

@@ -22,8 +22,8 @@ const UpdatePR = ({handleClose, exercise}) => {
                 <form onSubmit={submit}>
                     <h3>PR du {new Date(exercise.created_at).toLocaleDateString()}</h3>
                     <div>
-                        <div>
-                            <label htmlFor="weight">Weight</label>
+                        <div className={'input_container'}>
+                            <label htmlFor="weight">Charge</label>
                             <input
                                 type="number"
                                 id="weight"
@@ -35,7 +35,7 @@ const UpdatePR = ({handleClose, exercise}) => {
                             />
                         </div>
 
-                        <div>
+                        <div className={'input_container'}>
                             <label htmlFor="repetitions">Reps</label>
                             <input
                                 type="number"

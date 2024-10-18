@@ -15,8 +15,8 @@ const DeleteAccountPopIn = ({user, handleClose}) => {
         <PopInLayout handleClose={handleClose}>
             <h2>Êtes vous certain(e) de vouloir supprimer votre compte ? Cette action est irréversible.</h2>
             <div>
-                <button onClick={() => deleteUser(user.id)}>Supprimer</button>
-                <button onClick={handleClose}>Annuler</button>
+                <button className={'danger'} onClick={() => deleteUser(user.id)}>Supprimer</button>
+                <button className={'cancel'} onClick={handleClose}>Annuler</button>
             </div>
         </PopInLayout>
     );

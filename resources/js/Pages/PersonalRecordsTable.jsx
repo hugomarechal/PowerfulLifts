@@ -23,7 +23,7 @@ const PersonalRecordsTable = ({ squats, benches, deadlifts }) => {
             <table>
                 <thead>
                 <tr>
-                    <h2>{exercises[0].name}</h2>
+                    <p className={'table-title'}>{exercises[0].name === 'Bench Press' ? 'Bench' : exercises[0].name}</p>
                 </tr>
                 <tr>
                     <th>Reps max</th>

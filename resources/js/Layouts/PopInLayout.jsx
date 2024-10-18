@@ -3,9 +3,13 @@ import React from "react";
 const PopInLayout = ({children, handleClose}) => {
 
   return(
-      <div>
-          <button onClick={handleClose}>Fermer</button>
-          {children}
+      <div className="outer-space" onClick={handleClose}>
+          <div className="popin-body" onClick={e => e.stopPropagation()}>
+              <div className="close-btn" onClick={handleClose}>❌</div>
+              {
+                  children
+              }
+          </div>
       </div>
   )
 }

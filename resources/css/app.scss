@@ -1,0 +1,188 @@
+@import '_variables';
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+
+ // partials
+.header {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: $theme-color;
+    top: 0;
+    width: 100%;
+    a {
+        cursor: pointer;
+    }
+
+    h1 {
+        text-decoration: none;
+        color: white;
+
+    }
+}
+
+nav {
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: $contrast-color;
+    a {
+        height: max-content;
+        background-color: white;
+        color: black;
+        padding: 10px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 10px;
+        font-weight: 600;
+        margin-right: 16px;
+        text-decoration: none;
+    }
+}
+
+button {
+    background-color: $contrast-color;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-right: 16px;
+    text-decoration: none;
+    &.danger {
+        background-color: red;
+    }
+    &.cancel {
+        background-color: transparent;
+        color: #5E5D6C;
+    }
+}
+
+.outer-space {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #80808080;
+    z-index: 100;
+}
+
+.popin-body {
+    min-width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 16px;
+    background-color: white;
+    box-shadow: 12px 12px 15px grey;
+    border-radius: 15px;
+    z-index: 10000;
+    .btn_container {
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.btn_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 16px;
+    padding: 16px 26px;
+}
+
+.input_container {
+    display: flex;
+    flex-direction: column;
+    margin: 16px auto;
+    input, textarea {
+        margin-top: 4px;
+        padding-left: 8px;
+        background-color: #EAEAEA;
+        border: none;
+        border-radius: 5px;
+        height: 2rem;
+        &[type="file"] {
+            padding: 0;
+            border-radius: 0;
+            background-color: transparent;
+        }
+    }
+}
+
+table {
+    width: 60%;
+    margin: auto;
+    td, tr {
+        text-align: center;
+    }
+    .table-title {
+        font-size: 2rem;
+    }
+}
+
+// main
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    height: 100vh;
+    .total {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+            font-size: 2rem;
+            line-height: normal;
+            margin: 0 auto;
+        }
+    }
+}
+
+// home page
+
+.exercise {
+    margin: 4px auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+}
+
+// settings page
+.settings {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    max-width: 400px;
+}

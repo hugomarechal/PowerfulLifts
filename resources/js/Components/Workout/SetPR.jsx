@@ -28,7 +28,6 @@ const SetPR = ({handleClose, user}) => {
 
     return(
         <PopInLayout handleClose={handleClose}>
-            <h2>Performance ?</h2>
                 <div>
                     <h3>Sélectionnez un exercice :</h3>
                     <button onClick={() => handleSelection("Squat")}>Squat</button>
@@ -40,8 +39,8 @@ const SetPR = ({handleClose, user}) => {
                     <h3>Nouveau PR - {exercise}</h3>
                     <div>
                         <input type="hidden" id="name" name="name" value={data.name}/>
-                        <div>
-                            <label htmlFor="weight">Weight</label>
+                        <div className={'input_container'}>
+                            <label htmlFor="weight">Charge</label>
                             <input
                                 type="number"
                                 id="weight"
@@ -53,7 +52,7 @@ const SetPR = ({handleClose, user}) => {
                             />
                         </div>
 
-                        <div>
+                        <div className={'input_container'}>
                             <label htmlFor="repetitions">Reps</label>
                             <input
                                 type="number"
@@ -66,7 +65,7 @@ const SetPR = ({handleClose, user}) => {
                             />
                         </div>
                         <div>
-                            <button disabled={processing} type="submit">Nouveau PR</button>
+                        <button disabled={processing} type="submit">Nouveau PR</button>
                         </div>
                     </div>
                 </form>

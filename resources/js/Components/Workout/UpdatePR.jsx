@@ -1,45 +1,27 @@
-import React, {useState} from "react";
+import React from "react";
 import {useForm} from "@inertiajs/react";
 import PopInLayout from "../../Layouts/PopInLayout.jsx";
 
-const SetPR = ({handleClose, user}) => {
+const UpdatePR = ({handleClose, exercise}) => {
 
-    const [exercise, setExercise] = useState("");
-
-    const { data, setData, post, processing } = useForm({
-        userId: user.id,
-        name : exercise,
-        weight: 0,
-        repetitions: 0,
+    const { data, setData, put, processing } = useForm({
+        weight: exercise.weight,
+        repetitions: exercise.repetitions,
     });
 
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('set.store'));
-        setExercise("");
+        put(route('set.update', {id: exercise.id}));
         handleClose();
     };
 
-    const handleSelection = (name) => {
-        setExercise(name);
-        setData('name', name);
-    }
-
     return(
         <PopInLayout handleClose={handleClose}>
-            <h2>Performance ?</h2>
-                <div>
-                    <h3>Sélectionnez un exercice :</h3>
-                    <button onClick={() => handleSelection("Squat")}>Squat</button>
-                    <button onClick={() => handleSelection("Bench Press")}>Bench Press</button>
-                    <button onClick={() => handleSelection("Deadlift")}>Deadlift</button>
-                </div>
-                {exercise !== "" &&
+            <h2>Modifier un PR</h2>
                 <form onSubmit={submit}>
-                    <h3>Nouveau PR - {exercise}</h3>
+                    <h3>PR du {new Date(exercise.created_at).toLocaleDateString()}</h3>
                     <div>
-                        <input type="hidden" id="name" name="name" value={data.name}/>
                         <div>
                             <label htmlFor="weight">Weight</label>
                             <input
@@ -66,14 +48,12 @@ const SetPR = ({handleClose, user}) => {
                             />
                         </div>
                         <div>
-                            <button disabled={processing} type="submit">Nouveau PR</button>
+                            <button disabled={processing} type="submit">Modifier PR</button>
                         </div>
                     </div>
                 </form>
-                }
-</PopInLayout>
-)
-    ;
+        </PopInLayout>
+    );
 }
 
-export default SetPR;
+export default UpdatePR;

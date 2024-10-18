@@ -24,8 +24,9 @@ Route::middleware('guest')->group(function() {
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'getDashboard'])->name('dashboard');
 
-    Route::post('set', [\App\Http\Controllers\SetController::class, 'store'])->name('set.store');
     Route::get('personal-records', [\App\Http\Controllers\SetController::class, 'showPersonalRecords'])->name('personal-records.show');
+    Route::post('set', [\App\Http\Controllers\SetController::class, 'store'])->name('set.store');
+    Route::put('set/{id}', [\App\Http\Controllers\SetController::class, 'update'])->name('set.update');
 
     Route::get('settings', [\App\Http\Controllers\UserController::class, 'getSettings'])->name('settings');
     Route::post('logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');

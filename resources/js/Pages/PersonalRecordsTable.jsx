@@ -1,12 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import DashboardLayout from "../Layouts/DashboardLayout.jsx";
+import UpdatePR from "../Components/Workout/UpdatePR.jsx";
 
 const PersonalRecordsTable = ({ squats, benches, deadlifts }) => {
-    function updatePR() {
 
+    const [isVisible, setIsVisible] = useState(false);
+    const [currentExercise, setCurrentExercise] = useState(null);
+
+    function updatePR(exercise) {
+        setCurrentExercise(exercise);
+        setIsVisible(true)
+    }
+
+    const handleClose = () => {
+        setCurrentExercise(null);
+        setIsVisible(false);
     }
 
     const PRTable = ({exercises}) => {
+
         return (
             <table>
                 <thead>
@@ -26,7 +38,7 @@ const PersonalRecordsTable = ({ squats, benches, deadlifts }) => {
                             <td>{exercise.repetitions}</td>
                             <td>{exercise.weight}</td>
                             <td>{new Date(exercise.created_at).toLocaleDateString()}</td>
-                            <td><button onClick={updatePR}>Modifier</button></td>
+                            <td><button onClick={() => updatePR(exercise)}>Modifier</button></td>
                         </tr>
                     ))
                 }
@@ -36,6 +48,7 @@ const PersonalRecordsTable = ({ squats, benches, deadlifts }) => {
     }
     return (
         <DashboardLayout>
+            {isVisible && <UpdatePR handleClose={handleClose} exercise={currentExercise}/>}
             <h1>PR Récap</h1>
             <PRTable exercises={squats}/>
             <PRTable exercises={benches}/>

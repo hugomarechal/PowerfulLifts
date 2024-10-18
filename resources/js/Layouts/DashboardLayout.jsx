@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "@inertiajs/react";
 
-const DashboardLayout = ({children}) => {
+const DashboardLayout = ({children, user}) => {
 
     return(
         <body>
@@ -13,6 +13,7 @@ const DashboardLayout = ({children}) => {
                 <Link href={route('dashboard')} >Accueil</Link>
                 <Link href={route('personal-records.show')}>Records</Link>
                 <Link href={route('settings')}>Réglages</Link>
+                {user && user.is_admin === 1 && <Link href={route('admin.dashboard')}>Admin</Link>}
             </nav>
         </body>
     )

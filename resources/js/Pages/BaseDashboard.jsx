@@ -12,7 +12,7 @@ const BaseDashboard = ({user, records}) => {
     }
 
     return (
-        <DashboardLayout>
+        <DashboardLayout user={user}>
             <div className='main-container'>
                 <h2>Dashboard de {user.name}</h2>
                 <div>

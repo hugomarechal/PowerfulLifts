@@ -39,3 +39,10 @@ Route::middleware('auth')->group(function() {
     Route::post('logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
     Route::delete('users/{id}', [\App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 });
+
+Route::middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function() {
+    Route::get('/admin-dashboard', [\App\Http\Controllers\AdminController::class, 'getAdminDashboard'])->name('admin.dashboard');
+    Route::put('admin/{id}', [\App\Http\Controllers\AdminController::class, 'update'])->name('admin.update');
+    Route::delete('admin/{id}', [\App\Http\Controllers\AdminController::class, 'destroy'])->name('admin.destroy');
+
+});

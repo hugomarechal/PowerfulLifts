@@ -1,0 +1,23 @@
+@import "../../assets/styles/variables";
+
+.header {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: $theme-color;
+  h1 {
+    margin: 0;
+    color: greenyellow;
+    text-align: center;
+    text-decoration: none;
+  }
+  a {
+    cursor: pointer;
+  }
+}

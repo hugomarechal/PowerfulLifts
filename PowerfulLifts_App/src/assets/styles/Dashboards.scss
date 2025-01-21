@@ -1,0 +1,63 @@
+.main-container {
+  height: 100vh;
+  flex-grow: 1;
+  margin-bottom: 100px;
+}
+
+.tables-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  @media only screen and (min-width: 1200px) {
+    flex-direction: row;
+    gap: 30px;
+    padding-left: 100px;
+  }
+}
+.widgets-container {
+ display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 700px) {
+    flex-direction: row;
+    gap: 30px;
+    align-items: end;
+  }
+.widget-container {
+  display: flex;
+  width: 100%;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+
+
+  .widget {
+    margin: 20px auto;
+    width: 50%;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+}
+
+.exercise {
+  margin: 4px auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  color: black;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.weigth-table-container {
+  margin-top: 40px;
+    .weigth-table {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    padding-bottom: 20px;
+    }
+}

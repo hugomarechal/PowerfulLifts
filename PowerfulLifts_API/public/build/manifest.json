@@ -1,0 +1,16 @@
+{
+  "resources/css/app.scss": {
+    "file": "assets/app-dJvw_sVP.css",
+    "src": "resources/css/app.scss",
+    "isEntry": true
+  },
+  "resources/js/app.jsx": {
+    "file": "assets/app-RiLRY3n2.js",
+    "name": "app",
+    "src": "resources/js/app.jsx",
+    "isEntry": true,
+    "css": [
+      "assets/app-dJvw_sVP.css"
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+/node_modules
+/.pnp
+.pnp.js
+
+# Parcel-bundler cache
+.cache
+
+# Build output
+dist/
+build/
+
+# Environment variables
+.env
+.env.*.local
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.swns
+*.DS_Store
+Thumbs.db
+
+# Laravel specific
+/vendor
+/public/storage
+/storage/*.key
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/storage/logs/*
+.env.backup
+
+# Laravel Telescope
+/telescope/*
+
+# Ignored tests results
+.phpunit.result.cache
+
+# Miscellaneous
+*.sql
+*.sqlite
+*.sqlite3
+
+# MacOS files
+.DS_Store
+
+# React specific
+/.eslintcache
+
+# Temp files
+*.temp
+*.tmp
+*.bak
+*.swp
+*.old
+*.save
+*.sublime-workspace
+*.sublime-project
+
